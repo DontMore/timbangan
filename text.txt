@@ -1,0 +1,176 @@
+--------------------
+
+02-Dec-2022    14:31
+
+    Sartorius       
+
+Mod.         MA160-1
+
+SerNo.    0037508461
+
+BAC:  00-53-01.01.00
+
+APC:  01-80-01.09.04
+
+MCU:  07-40-05.00.02
+
+--------------------
+
+Method name         
+
+               PEGAB
+
+Type                
+
+       Gentle drying
+
+Temperature         
+
+               65 'C
+
+Standby             
+
+                  On
+
+Standby temperature 
+
+               55 'C
+
+Initial weight      
+
+                  On
+
+Initial weight      
+
+              3.70 g
+
+Tolerance +/-       
+
+              3.77 g
+
+End                 
+
+   Semi-automatic mg
+
+Loss                
+
+                5 mg
+
+Interval            
+
+              24 sec
+
+Result display      
+
+      Moisture in %M
+
+Target value        
+
+                 Off
+
+No. of filters      
+
+                   0
+--------------------
+
+02-Dec-2022    14:31
+
+    Sartorius       
+
+Mod.         MA160-1
+
+SerNo.    0037508461
+
+BAC:  00-53-01.01.00
+
+APC:  01-80-01.09.04
+
+MCU:  07-40-05.00.02
+
+--------------------
+
+Method name         
+
+               PEGAB
+
+Type                
+
+       Gentle drying
+
+Temperature         
+
+               65 'C
+
+Standby             
+
+                  On
+
+Standby temperature 
+
+               55 'C
+
+Initial weight      
+
+                  On
+
+Initial weight      
+
+              3.70 g
+
+Tolerance +/-       
+
+              3.77 g
+
+End                 
+
+   Semi-automatic mg
+
+Loss                
+
+                5 mg
+
+Interval            
+
+              24 sec
+
+Result display      
+
+      Moisture in %M
+
+Target value        
+
+                 Off
+
+No. of filters      
+
+                   0
+
+Start time          
+
+               14:31
+
+Start weight        
+
+        +    4.040 g
+
+Measurement time    
+
+           02:00 min
+
+Result              
+
+             0.10 %M
+
+Final weight        
+
+        +    4.036 g
+
+Measurement compl.  
+
+--------------------
+
+Name:               
+
+                    
+
+--------------------
