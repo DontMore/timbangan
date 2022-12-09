@@ -1,0 +1,35 @@
+CS3
+
+Date/Time   09-Dec-2022 
+
+            10:04:20    
+
+Sample      NATRINDO 6  
+
+            BLN TK      
+
+Status      OK          
+
+                        
+
+User        Nur.Rachman 
+
+                        
+
+Method      DM          
+
+                        
+
+Meas.type1  DM pH       
+
+ Sensor     RoutineProIS
+
+            M           
+
+                        
+
+Value       4.50 pH     
+
+ Temp.      23.8 �C ATC 
+
+ Endpoint   Manual (1s)
