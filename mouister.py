@@ -15,7 +15,7 @@ if mydb.is_connected():
     
 mycursor = mydb.cursor()
 
-def timbangan():
+def moisture():
 
     ser = serial.Serial(
         port='/dev/ttyUSB0',
@@ -29,24 +29,25 @@ def timbangan():
     data1= ""
     data2=""
     data3=""
-
+    no = 1
 
     while True:
         x = ser.readline().decode(encoding='UTF-8',errors='replace')
         y = x.split()
         if y != ['--------------------']:
-            if y == ['Name:']:
-                data = data1.split()
-                break
-            else:
-                data1 += x
-                z = data1.split()
-                print(z)
-                panjang_z = len(z)
-                print(panjang_z)
-                if panjang_z == 61:
-                    if z[60] != "Start":
+            if y != []:
+                if no == 36:
+                    if y != ['Start', 'time']:
                         data1 = ""
+                        data1 += x
+                    else:
+                        data1 += x
+                elif y == ['Name:']:
+                    data = data1.split()
+                    break
+                else:
+                    data1 += x
+                no += 1
                          
     print(data)
     
@@ -71,6 +72,6 @@ def timbangan():
         mydb.commit()
         print(mycursor.rowcount, "record inserted.")
         
-    timbangan()
+    moisture()
 
-timbangan()
+moisture()
