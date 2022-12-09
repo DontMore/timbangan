@@ -1,0 +1,25 @@
+CS3
+
+Date/Time   09-Dec-2022 
+
+            09:55:18    
+
+Sample                  
+
+                        
+
+User        Nur.Rachman 
+
+                        
+
+Method      PEBJF       
+
+                        
+
+Meas.type1  MS pH       
+
+                        
+
+U1[1]       4.46 pH     
+
+ T1[1]      23.8 �C ATC 
