@@ -1,0 +1,17 @@
+SAMPLENAME=ASP 0110  
+
+MODE-1  
+
+WAVELENGTH=589nm   TUBE=200mm
+
+CONC.=2.0000g/50cm3
+
+NO.0001 JAN.31,2023 20:12
+
+ S.R.    =   -1.190x        TEMP= 25.4xC
+
+ A.R.    =   -0.095x       
+
+ ISS     =   -0.275xZ      
+
+ POL     =   -0.065
