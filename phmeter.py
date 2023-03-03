@@ -1,88 +1,53 @@
-#!/usr/bin/env python3
-import serial
-import mysql.connector
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="1",
-    database="digitalisasi",
-    allow_local_infile = "True"
-)
-    
-if mydb.is_connected():
-    print("Berhasil terhubung ke database")
-    
-mycursor = mydb.cursor()
+file = open("phmeter.txt", "r")
 
-def timbangan():
+no = 1
+data = ""
 
-    ser = serial.Serial(
-        port='/dev/ttyUSB1',
-        baudrate = 9600,
-        parity=serial.PARITY_NONE,
-        stopbits=serial.STOPBITS_ONE,
-        bytesize=serial.EIGHTBITS,
-        timeout=None
-    )
+while no < 38:
+    response = file.readline()
+    data += response
+    no += 1
 
-    buffer = ""
-    data1= ""
+data = data.split()
 
+print(data)
+print("-------------------------------------")
+print(len(data))
+if len(data) == 19:
+    print("nama sampel belum")
+elif len(data) == 20:
+    print("tanggal :")
+    print(data[2])
+    print("jam :")
+    print(data[3])
+    print("sampel :")
+    print(data[7])
+    print("user :")
+    print(data[9])
+    print("pH :")
+    print(data[14])
+    print("Suhu :")
+    print(data[17])
+elif len(data) > 20:
+    lebihdata = len(data) - 20
+    print("tanggal :")
+    print(data[2])
+    print("jam :")
+    print(data[3])
+    print("sampel :")
+    i = 0
+    datasampel1 = ""
+    while i <= lebihdata:
+        num = i + 5
+        datasampel = data[num]
+        datasampel1 += " " + datasampel
+        i += 1
+    print(datasampel1)
+    print("user :")
+    print(data[(7 + lebihdata)])
+    print("pH :")
+    print(data[(14 + lebihdata)])
+    print("Suhu :")
+    print(data[(17 + lebihdata)])
 
-    while True:
-        x = ser.readline().decode(encoding='UTF-8',errors='replace')
-        y = x.split()
-        if y != ['--------------------']:
-            if y == ['Name:']:
-                data = data1.split()
-                break
-            else:
-                data1 += x
-
-    print(data)
-
-    no = 20
-    panjang = len(data)
-    while no < panjang:
-        if no == 21:
-            sampel = str(data[13])
-            batch = str(data[16])
-            analis = str(data[18])
-            value = str(data[21])
-            satuan = str(data[22])
-            print(sampel)
-            print(batch)
-            print(analis)
-            print(value)
-            print(satuan)
-            sql = "INSERT INTO data_digital (sampel, batch, analis, value, satuan) VALUES (%s, %s, %s, %s, %s)"
-            val = (sampel, batch, analis, value, satuan)
-            mycursor.execute(sql, val)
-            mydb.commit()
-            print(mycursor.rowcount, "record inserted.")
-        elif no > 21 and no < panjang:
-            if (no-21) % 4 == 0:
-               satuan = no + 1
-               sampel = str(data[13])
-               batch = str(data[16])
-               analis = str(data[18])
-               value = str(data[no])
-               satuan = str(data[satuan])
-               print(sampel)
-               print(batch)
-               print(analis)
-               print(value)
-               print(satuan)
-               sql = "INSERT INTO data_digital (sampel, batch, analis, value, satuan) VALUES (%s, %s, %s, %s, %s)"
-               val = (sampel, batch, analis, value, satuan)
-               mycursor.execute(sql, val)
-               mydb.commit()
-               print(mycursor.rowcount, "record inserted.")
-        elif no > panjang:
-            no = panjang - 1
-        no += 1
-        
-    timbangan()
-
-timbangan()
