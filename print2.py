@@ -77,83 +77,86 @@ ser2 = serial.Serial(
 
 # GUI setup
 root = tk.Tk()
-root.title("Measurement Form")
+root.title("Timbangan Digital")
 
 frame = ttk.Frame(root, padding="10")
 frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
+# Create a heading label
+heading_label = tk.Label(frame, text="Timbangan Digital", font=("Helvetica", 16, "bold"))
+heading_label.grid(row=0, column=0, columnspan=10, padx=10, pady=10)
+
 # Scale Settings
 scale_label = ttk.Label(frame, text="Scale Settings")
-scale_label.grid(row=0, column=0, columnspan=2, pady=(0, 10))
+scale_label.grid(row=1, column=0, columnspan=2, pady=(0, 10))
 
 scale_port_label = ttk.Label(frame, text="Port:")
-scale_port_label.grid(row=1, column=0, sticky=tk.E)
+scale_port_label.grid(row=2, column=0, sticky=tk.E)
 
 scale_port_combobox = ttk.Combobox(frame, state="readonly")
-scale_port_combobox.grid(row=1, column=1, pady=(0, 10))
+scale_port_combobox.grid(row=2, column=1, pady=(0, 10))
 
 scale_baudrate_label = ttk.Label(frame, text="Baudrate:")
-scale_baudrate_label.grid(row=2, column=0, sticky=tk.E)
+scale_baudrate_label.grid(row=3, column=0, sticky=tk.E)
 
 scale_baudrate_combobox = ttk.Combobox(frame, values=["1200", "2400", "4800"], state="readonly")
-scale_baudrate_combobox.grid(row=2, column=1, pady=(0, 10))
+scale_baudrate_combobox.grid(row=3, column=1, pady=(0, 10))
 
 # Printer Settings
 printer_label = ttk.Label(frame, text="Printer Settings")
-printer_label.grid(row=3, column=0, columnspan=2, pady=(10, 10))
+printer_label.grid(row=4, column=0, columnspan=2, pady=(10, 10))
 
 printer_port_label = ttk.Label(frame, text="Port:")
-printer_port_label.grid(row=4, column=0, sticky=tk.E)
+printer_port_label.grid(row=5, column=0, sticky=tk.E)
 
 printer_port_combobox = ttk.Combobox(frame, state="readonly")
-printer_port_combobox.grid(row=4, column=1, pady=(0, 10))
+printer_port_combobox.grid(row=5, column=1, pady=(0, 10))
 
 printer_baudrate_label = ttk.Label(frame, text="Baudrate:")
-printer_baudrate_label.grid(row=5, column=0, sticky=tk.E)
+printer_baudrate_label.grid(row=6, column=0, sticky=tk.E)
 
 printer_baudrate_combobox = ttk.Combobox(frame, values=["1200", "2400", "4800"], state="readonly")
-printer_baudrate_combobox.grid(row=5, column=1, pady=(0, 10))
+printer_baudrate_combobox.grid(row=6, column=1, pady=(0, 10))
 
 # Update ports button
 update_ports_button = ttk.Button(frame, text="Update Ports", command=update_ports)
-update_ports_button.grid(row=6, column=0, columnspan=2, pady=(10, 0))
+update_ports_button.grid(row=7, column=0, columnspan=2, pady=(10, 0))
 
 # Measurement Form
 sampel_label = ttk.Label(frame, text="Nama Sampel:")
-sampel_label.grid(row=7, column=0, sticky=tk.E, pady=(10, 10))
+sampel_label.grid(row=8, column=0, sticky=tk.E, pady=(10, 10))
 
 sampel_entry = ttk.Entry(frame)
-sampel_entry.grid(row=7, column=1, pady=(10, 10))
+sampel_entry.grid(row=8, column=1, pady=(10, 10))
 
 noQC_label = ttk.Label(frame, text="Nomor QC:")
-noQC_label.grid(row=8, column=0, sticky=tk.E, pady=(0, 10))
+noQC_label.grid(row=9, column=0, sticky=tk.E, pady=(0, 10))
 
 noQC_entry = ttk.Entry(frame)
-noQC_entry.grid(row=8, column=1, pady=(0, 10))
+noQC_entry.grid(row=9, column=1, pady=(0, 10))
 
 batch_label = ttk.Label(frame, text="Nomor Batch:")
-batch_label.grid(row=9, column=0, sticky=tk.E, pady=(0, 10))
+batch_label.grid(row=10, column=0, sticky=tk.E, pady=(0, 10))
 
 batch_entry = ttk.Entry(frame)
-batch_entry.grid(row=9, column=1, pady=(0, 10))
+batch_entry.grid(row=10, column=1, pady=(0, 10))
 
 analis_label = ttk.Label(frame, text="Nama Analis:")
-analis_label.grid(row=10, column=0, sticky=tk.E, pady=(0, 10))
+analis_label.grid(row=11, column=0, sticky=tk.E, pady=(0, 10))
 
 analis_entry = ttk.Entry(frame)
-analis_entry.grid(row=10, column=1, pady=(0, 10))
+analis_entry.grid(row=11, column=1, pady=(0, 10))
 
 # Submit button
-submit_button = ttk.Button(frame, text="Submit", command=submit_form)
-submit_button.grid(row=11, column=0, columnspan=2, pady=(10, 0))
+submit_button = ttk.Button(frame, text="Print", command=submit_form)
+submit_button.grid(row=12, column=0, columnspan=2, pady=(10, 0))
 
 # Label to display submitted data
 submitted_data_label = ttk.Label(frame, text="Submitted Data:")
-submitted_data_label.grid(row=12, column=0, columnspan=2, pady=(10, 0))
+submitted_data_label.grid(row=1, column=5, columnspan=2, pady=(0, 0))
 
 # Text widget to display submitted data
-submitted_data_text = tk.Text(frame, height=10, width=40)
-submitted_data_text.grid(row=13, column=0, columnspan=2, pady=(10, 0))
+submitted_data_text = tk.Text(frame, height=40, width=30)
+submitted_data_text.grid(row=2, column=5, columnspan=2, rowspan=10, padx=(10, 0))
 
 root.mainloop()
-
