@@ -3,10 +3,13 @@ import serial
 
 # Membuat objek serial dengan parameter sesuai perangkat yang terhubung
 ser = serial.Serial(
-    port='COM8', # Ganti dengan nomor port yang sesuai
-    baudrate=9600, # Ganti dengan kecepatan baud yang sesuai
-    timeout=1 # Ganti dengan waktu tunggu yang sesuai
-)
+        port= '/dev/ttyUSB1',
+        baudrate='1200',
+        parity=serial.PARITY_ODD,
+        stopbits=serial.STOPBITS_ONE,
+        bytesize=serial.SEVENBITS,
+        timeout=None
+    )
 
 # Membuka port serial jika belum terbuka
 if not ser.is_open:
@@ -15,7 +18,8 @@ if not ser.is_open:
 # Membaca data dari port serial secara terus menerus
 while True:
     # Membaca sebanyak 100 byte dari port serial
-    data = ser.read(100)
+    data = ser.readline()
+    dataPrint = data.decode('utf-8')
     # Jika ada data yang diterima, cetak data tersebut
-    if data:
-        print(data)
+    if dataPrint:
+        print(dataPrint)
